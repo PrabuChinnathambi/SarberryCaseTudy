@@ -34,7 +34,7 @@ const LoginPage = () => {
                     </div>
                     <div className="user-box">
                         <label>Password :</label>
-                        <input  type="password" placeholder="***********" name="password" onChange={(e) =>setLogin({...login,password: e.target.value})} required="" />
+                        <input  type="password" placeholder="password" name="password" onChange={(e) =>setLogin({...login,password: e.target.value})} required="" />
                     </div>
                     <button className="button" onClick={hanldeLoginClick} >
                         Continue
