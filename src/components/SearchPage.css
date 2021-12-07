@@ -1,0 +1,39 @@
+.serach_page{
+    text-align: center;
+}
+.serach_page .search_container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.serach_page .search_property_card{
+    background-color: whitesmoke;
+    padding: 20px 20px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.serach_page .search_property_card .search_card_image{
+    width: 250px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+.serach_page .search_property_card p{
+    margin: 8px 0px;
+}
+.serach_page .search_property_card .property_card_title{
+    width: 300px;
+    font-size: 15px;
+}
+
+.serach_page .search_property_card .property_card_desc{
+    font-size: 13px;
+    text-transform: lowercase;
+}
+
+.serach_page .search_property_card .property_card_price{
+    font-weight: 600;
+}

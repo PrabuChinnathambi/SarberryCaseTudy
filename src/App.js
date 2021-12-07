@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import SearchPage from './components/SearchPage';
+import DetailsPage from './components/DetailsPage';
+import LoginPage from './components/LoginPage';
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { set_property_data } from './redux/actions/propertyActions';
+
+
+
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getData = () => {
+      axios.get('https://carolineolds-strapi-dev.q.starberry.com/properties?_limit=50')
+        .then((res) => {
+          dispatch(set_property_data(res.data));
+        })
+    }
+
+    getData();
+
+  })
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/home" element={<SearchPage />} />
+          <Route path="/details/:id" element={<DetailsPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

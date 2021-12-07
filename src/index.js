@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import SimpleReactLightbox from 'simple-react-lightbox'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <SimpleReactLightbox>
+        <App />
+      </SimpleReactLightbox>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
